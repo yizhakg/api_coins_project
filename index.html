@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coins Project</title>
+  <link rel="stylesheet" href="index.css">
+  <script src="https://kit.fontawesome.com/96c2cf9a06.js" crossorigin="anonymous"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      clear: both;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="webTitle">Money Converter</h1>
+  <img class="mainImg" src="./img/money1.png" alt="">
+  <div class="main">
+    <div class="typeBarChoose">
+      <button id="cashButton" class="typeBarChooseChilds" onclick="switchMoneyType(true)">CASH</button>
+      <button id="cryptoButton" class="typeBarChooseChilds" style="background: #8e8f9b; color :white"
+        onclick="switchMoneyType(false)">CRYPTO</button>
+    </div>
+    <div id="cash" class="container">
+      <div class="mainDiv">
+        <div>
+          <label for="numberCash">amount</label><br>
+          <input class="mainDivChilds" type="number" id="numberCash" min="0" value="1">
+        </div>
+        <div>
+          <label for="fromCash">from</label><br>
+          <select class="mainDivChilds" name="fromCash" id="fromCash"></select>
+        </div>
+        <button class="mainDivChilds" onclick="swapTheCoins(true); turnThisButton(this)"><img
+            src="data:image/png;base64,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"></button>
+        <div>
+          <label for="toCash">to</label><br>
+          <select class="mainDivChilds" name="toCash" id="toCash"></select>
+        </div>
+        <button class="mainDivChilds" onclick="convertor(true)"><img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABmJLR0QA/wD/AP+gvaeTAAACF0lEQVR4nO3cQWrUYByG8X9EWo/QGxUXRW81PYbdi4qLVi9k8QZu5HExFUTtdJJ8+d4m8/xgtiHzvDAZQkiVJEkBwDlwDdw/fK6B8/R5nQTgDPjMv74Ar9Lnt2kH4jvC0o6I7whLGRHfEVqbEN8RWpkR3xHmahDfEaZqGN8RxlogviMca8H4jvCUDvEd4TEd4zvC39jfWLvtGP+3W7yBV8X+TmbKakcYWh0IuK+qi1bHm+BrVb0dhuFH8BxGe5E+gYYuq+oTK7smtBzgXcNjTXVZVR/W+nM0C7mL8P+s9powC/3/hh5ymn9RcYQ8HCEPR8jDEfJwhDwcIQ9HyMMR8nCEPBwhD0fIwxHycIQ8HCEPR8jDEfJwhDwcIQ9HyMMR8nCEPHzkJY/nNcKu1fdq9mxoD8BZVb2vqqvwqXwfhqHJc7Bbeja0p5+tDvSy1YGWxv5392NVvU6fS1XdpE+gK57X7/9pXYTxb2gOxs/B+DkYPwfj52D8HIyfg/FzMH4Oxs/B+DkYPwfj52D8HIyfg/FzMH4Oxs/B+DkYPwfj52D8HHx0JIvse0P/tKr4W3pvaNUK3x26pWdDVxe/ajvvDb2rqjdri98Uvrw7D19fn9dxBOM/psMIxn/KgiMY/1gLjGD8sRqOYPypGoxg/LlmjGD8ViaMYPzWRoxg/KUcMYLxl3ZgBOP3wv4G3g749vDZ4Y01SdKJ+AX/De7pbxcm+QAAAABJRU5ErkJggg=="></button>
+      </div>
+      <div id="convertResultCash"></div>
+    </div>
+    <div id="crypto" class="container" style="display: none;">
+      <div class="mainDiv">
+        <div>
+          <label for="numberCrypto">amount</label><br>
+          <input class="mainDivChilds" type="number" id="numberCrypto" min="0" value="1">
+        </div>
+        <div>
+          <label for="fromCrypto">from</label><br>
+          <select class="mainDivChilds" name="fromCrypto" id="fromCrypto"></select>
+        </div>
+        <button class="mainDivChilds" onclick="swapTheCoins(false); turnThisButton(this)"><img
+            src="data:image/png;base64,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"></button>
+        <div>
+          <label for="toCrypto">to</label><br>
+          <select class="mainDivChilds" name="toCrypto" id="toCrypto"></select>
+        </div>
+        <button class="mainDivChilds" onclick="convertor(false)"><img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABmJLR0QA/wD/AP+gvaeTAAACF0lEQVR4nO3cQWrUYByG8X9EWo/QGxUXRW81PYbdi4qLVi9k8QZu5HExFUTtdJJ8+d4m8/xgtiHzvDAZQkiVJEkBwDlwDdw/fK6B8/R5nQTgDPjMv74Ar9Lnt2kH4jvC0o6I7whLGRHfEVqbEN8RWpkR3xHmahDfEaZqGN8RxlogviMca8H4jvCUDvEd4TEd4zvC39jfWLvtGP+3W7yBV8X+TmbKakcYWh0IuK+qi1bHm+BrVb0dhuFH8BxGe5E+gYYuq+oTK7smtBzgXcNjTXVZVR/W+nM0C7mL8P+s9powC/3/hh5ymn9RcYQ8HCEPR8jDEfJwhDwcIQ9HyMMR8nCEPBwhD0fIwxHycIQ8HCEPR8jDEfJwhDwcIQ9HyMMR8nCEPHzkJY/nNcKu1fdq9mxoD8BZVb2vqqvwqXwfhqHJc7Bbeja0p5+tDvSy1YGWxv5392NVvU6fS1XdpE+gK57X7/9pXYTxb2gOxs/B+DkYPwfj52D8HIyfg/FzMH4Oxs/B+DkYPwfj52D8HIyfg/FzMH4Oxs/B+DkYPwfj52D8HHx0JIvse0P/tKr4W3pvaNUK3x26pWdDVxe/ajvvDb2rqjdri98Uvrw7D19fn9dxBOM/psMIxn/KgiMY/1gLjGD8sRqOYPypGoxg/LlmjGD8ViaMYPzWRoxg/KUcMYLxl3ZgBOP3wv4G3g749vDZ4Y01SdKJ+AX/De7pbxcm+QAAAABJRU5ErkJggg=="></button>
+      </div>
+      <div id="convertResultCrypto"></div>
+    </div>
+  </div>
+
+
+  <table>
+    <tbody id="tableBody" style="display: none;"> 
+      <tr>
+        <th>Name</th>
+        <th>Unit</th>
+        <th>Value</th>
+        <th>Type</th>
+      </tr>
+    </tbody>
+  </table>
+  <script src="index.js"></script>
+</body>
+
+</html>

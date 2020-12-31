@@ -1,0 +1,155 @@
+*{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 900;
+}
+body{
+  margin: 20px;
+  padding: 0;
+  text-align: center;
+  color: #001427;
+}
+.main{
+  margin: 10px;
+}
+.webTitle{
+  font-size: 7vw;
+  margin: 10px;
+}
+.typeBarChoose{
+  display: flex;
+  justify-content: flex-start;
+  margin: 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: fit-content;
+}
+.typeBarChooseChilds{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: rgb(241, 244, 248);
+  cursor: pointer;
+  background: #E1E2EF;
+  width: fit-content;
+  padding: 10px;
+}
+.typeBarChooseChilds:hover{
+  background: #9e9fac;
+}
+
+
+.mainImg{
+  height: 100px;
+  width: auto;
+}
+.container{
+  margin: auto;
+  padding: 30px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  min-height: 270px;
+  background: #E1E2EF;
+}
+input,select{
+  height: 50px;
+  width: 300px;
+  font-size: 22px;
+  padding: 0 10px;
+  text-overflow: ellipsis;
+}
+option{
+  font-size: 20px;
+}
+button{
+  height: 50px;
+  width: 50px;
+  transition: transform .5s;
+  outline: none;
+}
+button>img{
+  width: 100%;
+  height: auto;
+}
+.mainDiv{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin: 10px;
+  text-align: left;
+}
+div,button{
+  margin: 0 10px;
+}
+.mainDivChilds{
+  border-radius: 5px;
+  border: 0px;
+  background-color: #1982C4;
+  color: white;
+  cursor: pointer;
+}
+#convertResultCash,#convertResultCrypto{
+  text-align: center;
+  font-size: 5vw;
+}
+.spanHeartbeat {
+  animation: pulsate-fwd 1.5s ease-in-out infinite both;
+  display: inline-block;
+}
+@keyframes pulsate-fwd {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+label{
+  font-size: 30px;
+  text-transform: capitalize;
+}
+@media screen and (max-width: 992px) {
+  .container{
+    min-height:660px;
+  }
+  .mainDiv{
+flex-direction: column;
+align-items: center;
+  }
+  .mainDivChilds{
+    margin: 10px 0;
+ text-align: center;
+  }
+  input,select{
+    height: 50px;
+    width: 50vw;
+  }
+  #convertResultCash,#convertResultCrypto{
+    text-align: center;
+    font-size: 9vw;
+  }
+  .webTitle{
+    font-size: 10vw;
+    margin: 10px;
+  }
+}
+
+
+
+
+
+
+
+
+
+#tbody{
+  text-align: center;
+}
+table{
+  margin: auto;
+}
+table,th,tr,td{
+  border: 3px solid black;
+  border-collapse: collapse;
+}
